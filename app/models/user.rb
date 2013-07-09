@@ -4,12 +4,14 @@ class User < ActiveRecord::Base
   def fetch_tweets!
     self.tweets.destroy_all
   	Twitter.user_timeline.first(10).each do |tweet|
-  		self.tweets.create(tweet: tweet.text, created: tweet.created_at)
+  		self.tweets.create(tweet: tweet.text, created: tweet.user.created_at)
   	end
-  	p self.tweets
+  	self.tweets
   end
 
   def tweets_stale?
-    self.tweets.any? { |tweet| ((Time.now - tweet.created_at) / 60) > 15 }
+    self.tweets.any? { |tweet| (Time.now - tweet.created.to_time).ceil > 15 }
   end
+
+ 
 end

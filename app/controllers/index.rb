@@ -21,3 +21,10 @@ get '/:username' do
 
   erb :index
 end
+
+post '/update_tweets' do
+  if fresh_tweets?
+  	@tweets_new = get_fresh_tweets
+  end
+  
+end

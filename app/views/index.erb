@@ -4,7 +4,8 @@
   <ol>
     <% if @tweets %>
   <div><%@tweets.each do |i| %>
-       <li><p><%= i.created %></p>
+       <li><p>
+        Added <%= ((Time.now - i.created) / 60).ceil %> minute(s) ago.</p>
        <%=i.tweet %></li>
        <%end%>
       <%end%>
