@@ -1,17 +1,22 @@
 <div class="container">
   <h1>Welcome to Sinatra!</h1>
   <p>Hello, world!</p>
+
+<div id='tweet_list'>
   <ol>
     <% if @tweets %>
-  <div><%@tweets.each do |i| %>
+  <%@tweets.each do |i| %>
        <li><p>
         Added <%= ((Time.now - i.created) / 60).ceil %> minute(s) ago.</p>
        <%=i.tweet %></li>
        <%end%>
       <%end%>
-
      </ll>
-
 
   </div>
 </div>
+
+
+
+
+

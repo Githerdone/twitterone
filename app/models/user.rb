@@ -12,6 +12,4 @@ class User < ActiveRecord::Base
   def tweets_stale?
     self.tweets.any? { |tweet| (Time.now - tweet.created.to_time).ceil > 15 }
   end
-
- 
 end
