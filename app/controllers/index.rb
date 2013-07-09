@@ -25,8 +25,11 @@ end
 post '/update_tweets' do
   array = []
 	@user = User.find(session[:id])
+
   if fresh_tweets?
   	@tweets_new = get_fresh_tweets
+    @tweets_new = repeat_tweet?(@tweets_new)
+    p @tweets_new
     if @tweets_new
       @tweets_new.length.times do |tweet|
         @user.tweets.destroy.first
