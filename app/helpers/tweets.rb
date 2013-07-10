@@ -4,9 +4,10 @@ helpers do
 		!session[:id].empty?
 	end
 	
-  def fresh_tweets?
-  	Twitter.user_timeline.any? { |tweet| tweet.created_at < Time.now.ago(900) }
+  def set_current_user(useranme)
+    @user = User.find_by_username(username)
   end
+  
 
   def repeat_tweet?(tweets_new)
     tweets_new.each do |tweet|

@@ -14,8 +14,6 @@ get '/:username' do
   end
   if @user.tweets.empty? 
 	  @tweets = @user.fetch_tweets!
-  elsif @user.tweets_stale?
-	  @tweets = @user.fetch_tweets!
   elsif !@user.tweets.empty? 
     @tweets = @user.tweets  
   end
@@ -24,12 +22,11 @@ end
 
 post '/update_tweets' do
   array = []
-	@user = User.find(session[:id])
+	
 
   if fresh_tweets?
   	@tweets_new = get_fresh_tweets
     @tweets_new = repeat_tweet?(@tweets_new)
-    p @tweets_new
     if @tweets_new
       @tweets_new.length.times do |tweet|
         @user.tweets.destroy.first
@@ -44,3 +41,9 @@ post '/update_tweets' do
   array.to_json
 end
 
+post '/post_tweet' do
+
+  Twitter.update(params[:comments])
+  content_type :json
+  {key: 'tweet_posted'}.to_json
+end

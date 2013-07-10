@@ -1,13 +1,21 @@
+<div class='tweet_box'>
+  <form id='create_tweet' method='post' action='/post_tweet'>
+    <textarea name='comments' cols='25' rows='5'></textarea><br>
+    <input type='submit' value='Post Tweet' />
+  </form>
+</div>
+
+
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to Tweet Box</h1>
+  <p>You're just a tweet away from being popular again...</p>
 
 <div id='tweet_list'>
   <ol>
     <% if @tweets %>
   <%@tweets.each do |i| %>
        <li style="background-color: #F8F8F8"><p>
-        Added <%= ((Time.now - i.created) / 60).ceil %> minute(s) ago.</p>
+        Added <%= ((Time.now - i.created_at) / 60).ceil %> minute(s) ago.</p>
        <%=i.tweet %></li>
        <%end%>
       <%end%>

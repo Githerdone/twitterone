@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
   	self.tweets
   end
 
-  def tweets_stale?
-    self.tweets.any? { |tweet| (Time.now - tweet.created.to_time).ceil > 15 }
+  # def tweets_stale?
+  #   self.tweets.any? { |tweet| (Time.now - tweet.created.to_time).ceil > 15 }
+  # end
+
+  def fresh_tweets?
+    Twitter.user_timeline.any? { |tweet| tweet.created_at < Time.now.ago(900) }
   end
 end
