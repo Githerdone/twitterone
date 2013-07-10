@@ -22,8 +22,6 @@ end
 
 post '/update_tweets' do
   array = []
-	
-
   if fresh_tweets?
   	@tweets_new = get_fresh_tweets
     @tweets_new = repeat_tweet?(@tweets_new)
