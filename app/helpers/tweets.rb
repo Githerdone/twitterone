@@ -1,12 +1,12 @@
 helpers do
 
-	def current_user?
-		!session[:id].empty?
-	end
+	# def current_user?
+	# 	!session[:id].empty?
+	# end
 	
-  def set_current_user(useranme)
-    @user = User.find_by_username(username)
-  end
+ #  def set_current_user(useranme)
+ #    @user = User.find_by_username(username)
+ #  end
 
 
   def fresh_tweets?

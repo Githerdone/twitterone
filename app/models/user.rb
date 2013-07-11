@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   end
 
   def tweets_from_twitter
-    Twitter.user_timeline
+    Twitter.user_timeline(username)
   end
 end

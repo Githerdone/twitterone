@@ -20,6 +20,8 @@ gem 'shotgun'
 gem 'oauth'
 gem 'twitter'
 
+gem 'pry'
+
 group :test do
   gem 'faker'
   gem 'rspec'
