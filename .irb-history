@@ -1,0 +1,100 @@
+zee
+zee.skills
+q = Quality.last
+q.update_attributes!(proficiency_rating: 5)
+q
+q = zee.qualities.first
+zee.proficiency_for("Beard Growing")
+def find_skill_id(skill_name)
+    Skill.find_by_name(skill_name).id
+  end
+find_skill_id("Beard Growing")
+Skill.all
+me
+TimeDifferece
+TimeDifference.between(TwitterUser.last.tweets.first.updated_at, DateTime.now).in_minutes
+greg_tweet = TwitterUser.last.tweets.first
+greg_tweet.updated_at
+TimeDifference.between(greg_tweet.updated_at, DateTime.now)
+DateTime.now.class
+greg.tweet.updated_at.class
+greg_tweet.updated_at.class
+Time.now
+TimeDifference.between(greg_tweet.updated_at, Time.now)
+TimeDifference.between(greg_tweet.updated_at, Time.now).in_minutes
+TimeDifference.between(greg_tweet.created_at, Time.now).in_minutes
+greg = TwitterUser.find_by_username('180ad')
+his = greg.tweets.last.created_at
+TimeDifference.between(his, Time.now).in_minutes
+TimeDifference.between(his, Time.now).in_minutes.type
+TimeDifference.between(his, Time.now).in_minutes.class
+greg.tweets.clear
+User.create(username: 'soezpz')
+Twitter.user_timeline.first(10)
+user.created_at
+user[0].created_at
+Twitter.status
+Twitter.status('hello there')
+Twitter.status='hello there'
+user = Twitter.user_timeline.first(1)
+user = Twitter.update
+user = Twitter.update('go')
+Twitter.update('go')
+User.find_by_username('soezpz').id
+SELECT "users".* FROM "users"
+Select * from users
+select * from User
+select user.* from users
+select * from users
+usersz
+users
+User.all[0]
+variable = _
+variable.username
+User.find_by_username('soezpz')
+User.find_by_username('soezdd')
+variable.id.update_attributes(id: '2')
+variable.id.update_attribute(id: '2')
+variable.id.update_attr(id: '2')
+variable.update_attributes(id: ')
+variable.update_attributes(id: 3)
+variable.update_attributes(id: '3')
+variable.update_attributes(username: 'jake')
+variable
+User.find(1)
+User.all
+Tweet.create(tweet: 'blah blah again again', created: "2013-01-10
+Tweet.create(tweet: 'blah blah again again', created: "2013-01-10", user_id: 1)
+user = User.find(1)[0]
+user = User.find(1)
+user.tweets(1)
+user.tweets.first(2)
+user.tweets.length
+array = [#<Twitter::Tweet:0x007f815a75a4d0 @attrs={:created_at=>"Wed Jul 10 18:26:38 +0000 2013", :id=>355030317507162113, :id_str=>"355030317507162113", :text=>"grennnnennen", :source=>"<a href=\"http://www.devbootcamp.com\" rel=\"nofollow\">iDevBootCamp</a>", :truncated=>false, :in_reply_to_status_id=>nil, :in_reply_to_status_id_str=>nil, :in_reply_to_user_id=>nil, :in_reply_to_user_id_str=>nil, :in_reply_to_screen_name=>nil, :user=>{:id=>1077873978, :id_str=>"1077873978", :name=>"Jake", :screen_name=>"SoEzPz", :location=>"Phoenix", :description=>"", :url=>nil, :entities=>{:description=>{:urls=>[]}}, :protected=>false, :followers_count=>3, :friends_count=>10, :listed_count=>0, :created_at=>"Thu Jan 10 22:34:41 +0000 2013", :favourites_count=>1, :utc_offset=>nil, :time_zone=>nil, :geo_enabled=>false, :verified=>false, :statuses_count=>58, :lang=>"en", :contributors_enabled=>false, :is_translator=>false, :profile_background_color=>"C0DEED", :profile_background_image_url=>"http://a0.twimg.com/images/themes/theme1/bg.png", :profile_background_image_url_https=>"https://si0.twimg.com/images/themes/theme1/bg.png", :profile_background_tile=>false, :profile_image_url=>"http://a0.twimg.com/profile_images/3092802327/3fa2635dd5ca54b07e01edeafc96d293_normal.jpeg", :profile_image_url_https=>"https://si0.twimg.com/profile_images/3092802327/3fa2635dd5ca54b07e01edeafc96d293_normal.jpeg", :profile_link_color=>"0084B4", :profile_sidebar_border_color=>"C0DEED", :profile_sidebar_fill_color=>"DDEEF6", :profile_text_color=>"333333", :profile_use_background_image=>true, :default_profile=>true, :default_profile_image=>false, :following=>false, :follow_request_sent=>false, :notifications=>false}, :geo=>nil, :coordinates=>nil, :place=>nil, :contributors=>nil, :retweet_count=>0, :favorite_count=>0, :entities=>{:hashtags=>[], :symbols=>[], :urls=>[], :user_mentions=>[]}, :favorited=>false, :retweeted=>false, :lang=>"nl"}, @created_at=2013-07-10 11:26:38 -0700>]
+array.length
+array
+Tweet.last
+user
+user.tweets.last(10)
+Tweet.all.length
+tweets = user.tweets
+tweets
+user.tweets.order("created_at")
+user.tweets.created_at
+user.tweets.created_at.order("created_at")
+user.tweets.order("created_at").last(2)
+tweet = Tweet.first
+Tweet.find_by_tweet(tweet.text)
+tweet
+Tweet.find_by_tweet(tweet.tweet)
+Tweet.find_by_tweet(tweet: "here it is again")
+Tweet.all
+Tweet.first
+get_fresh_tweets
+Tweet.first.created_at
+Tweet.first.created_at.to_time
+time = Tweet.first.created_at
+Time.now - time
+ENV = { TWITTER_KEY: 'If7sQa7kORNz01NYp8kmw', TWITTER_SECRET: 'p1JGdpyTvk5e2dpe7AUtiOyOue0q2vPw7dlD5Z8' }
+ENV['TWITTER_KEY']
+exit

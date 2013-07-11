@@ -7,7 +7,7 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 # Require gems we care about
 require 'rubygems'
-require 'twitter'
+
 require 'uri'
 require 'pathname'
 
@@ -17,8 +17,13 @@ require 'logger'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
+require 'shotgun'
 
 require 'erb'
+
+require 'oauth'
+require 'twitter'
+
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -32,9 +37,16 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
+# Twitter.configure do |config|
+# 	config.consumer_key = 'If7sQa7kORNz01NYp8kmw'
+# 	config.consumer_secret = 'p1JGdpyTvk5e2dpe7AUtiOyOue0q2vPw7dlD5Z8'
+# 	config.oauth_token = '1077873978-b6h0yqcS83AMpUCJRWLWLHkLo79JBQantOMOVJ7'
+# 	config.oauth_token_secret = 'mD90EOEFGhHtdo8w6erpmKKuWgjwFciR7ypTYEMDUoI'
+# end
+
 Twitter.configure do |config|
-	config.consumer_key = 'If7sQa7kORNz01NYp8kmw'
-	config.consumer_secret = 'p1JGdpyTvk5e2dpe7AUtiOyOue0q2vPw7dlD5Z8'
-	config.oauth_token = '1077873978-b6h0yqcS83AMpUCJRWLWLHkLo79JBQantOMOVJ7'
-	config.oauth_token_secret = 'mD90EOEFGhHtdo8w6erpmKKuWgjwFciR7ypTYEMDUoI'
+  config.consumer_key = ENV['TWITTER_KEY']
+  config.consumer_secret = ENV['TWITTER_SECRET']
 end
+
+

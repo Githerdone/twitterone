@@ -3,12 +3,13 @@ $(document).ready(function() {
 	setInterval(function() {
 		var return_data = $.post('/update_tweets');
     return_data.done(function(tweets) {
-     for (var i = 0; i < tweets.length - 1; i++) {
-      $('#tweet_list ol').prepend("<li style='background-color: #F8F8F8'><p>Added " + tweets[i].created + "minute(s) ago.</p>" + tweets[i].tweet + "</li>" ).fadeIn(3000);
+     for (var i = 0; i < tweets.length; i++) {
+      $('#tweet_list ol').prepend("<li style='background-color: #F8F8F8'><p>Added " + tweets[i].tweet.created_at + "minute(s) ago.</p>" + tweets[i].tweet.tweet + "</li>");
+      remove_post();
     };
-    remove_post();
   });
-  },1000 * 60 * 15);
+
+  }, 1000 * 60 * .1);
 
   $('#create_tweet').submit(function(e) {
     e.preventDefault();
@@ -19,7 +20,6 @@ $(document).ready(function() {
     };
   });
   });
-
 });
 
 function remove_post() {
@@ -27,8 +27,4 @@ function remove_post() {
   if(num_tweets > 10) {
     $('#tweet_list li:last-child').remove();
   };
-}
-
-
-
-
+};

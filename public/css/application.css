@@ -25,3 +25,8 @@ th {
   padding-left: 10px;
   padding-top: 10px;
 }
+
+button a {
+  text-decoration: none;
+  color: black;
+}

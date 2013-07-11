@@ -2,18 +2,19 @@ class User < ActiveRecord::Base
   has_many :tweets
 
   def fetch_tweets!
-    self.tweets.destroy_all
-  	Twitter.user_timeline.first(10).each do |tweet|
-  		self.tweets.create(tweet: tweet.text, created: tweet.user.created_at)
+    tweets = remove_already_tweeted(tweets_from_twitter)
+  	tweets.map do |tweet|
+  		self.tweets.create(tweet: tweet.text, created: tweet.created_at)
   	end
-  	self.tweets
   end
 
-  # def tweets_stale?
-  #   self.tweets.any? { |tweet| (Time.now - tweet.created.to_time).ceil > 15 }
-  # end
+  def remove_already_tweeted(tweets)
+    tweets.reject do |repeat|
+      self.tweets.find_by_tweet(repeat.text)
+    end
+  end
 
-  def fresh_tweets?
-    Twitter.user_timeline.any? { |tweet| tweet.created_at < Time.now.ago(900) }
+  def tweets_from_twitter
+    Twitter.user_timeline
   end
 end
