@@ -76,14 +76,18 @@ get '/auth' do
 end
 
 get '/:username' do
-  @user = User.find_or_create_by_username(params[:username])
+  @user = User.find_or_create_by(username: params[:username])
   @tweets = @user.tweets.order("created_at DESC").limit(10)
   erb :index
 end
 
 post '/:username/tweets' do
-  user = User.find_or_create_by_username(params[:username])
+  user = User.find_by_username(params[:username])
+  # p '#' * 90
+  # variable = user.fetch_tweets!
+  # p variable
+  tweets = user.fetch_tweets!
   content_type :json
-  user.fetch_tweets!.to_json
+  tweets.to_json
 end
 

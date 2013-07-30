@@ -22,6 +22,8 @@ gem 'twitter'
 
 gem 'pry'
 
+gem 'debugger'
+
 group :test do
   gem 'faker'
   gem 'rspec'

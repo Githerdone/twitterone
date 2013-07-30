@@ -20,7 +20,7 @@
     <ol>
       <% if @tweets %>
     <%@tweets.each do |i| %>
-         <li style="background-color: #F8F8F8"><p>
+         <li style="background-color: #F8F8F8"><p data-createdat=<%= i.created_at %>>
           Added <%= ((Time.now - i.created_at) / 60).ceil %> minute(s) ago.</p>
          <%=i.tweet %></li>
          <%end%>

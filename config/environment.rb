@@ -23,6 +23,7 @@ require 'erb'
 
 require 'oauth'
 require 'twitter'
+require 'debugger'
 
 
 # Some helper constants for path-centric logic
@@ -44,10 +45,12 @@ require APP_ROOT.join('config', 'database')
 # 	config.oauth_token_secret = 'mD90EOEFGhHtdo8w6erpmKKuWgjwFciR7ypTYEMDUoI'
 # end
 
+ENV['TWITTER_KEY'] = 'If7sQa7kORNz01NYp8kmw'
+ENV['TWITTER_SECRET'] = 'p1JGdpyTvk5e2dpe7AUtiOyOue0q2vPw7dlD5Z8'
 
-# Twitter.configure do |config|
-#   config.consumer_key = ENV['TWITTER_KEY']
-#   config.consumer_secret = ENV['TWITTER_SECRET']
-# end
+Twitter.configure do |config|
+  config.consumer_key = ENV['TWITTER_KEY']
+  config.consumer_secret = ENV['TWITTER_SECRET']
+end
 
 

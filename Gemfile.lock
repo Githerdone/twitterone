@@ -21,7 +21,14 @@ GEM
     backports (3.3.3)
     builder (3.1.4)
     coderay (1.0.9)
+    columnize (0.3.6)
     daemons (1.1.9)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.4)
     eventmachine (1.0.3)
     faker (1.1.2)
@@ -87,6 +94,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   activesupport
+  debugger
   faker
   oauth
   pg
